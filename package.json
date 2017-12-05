@@ -1,0 +1,54 @@
+{
+  "name": "textlint-rule-title-case",
+  "version": "1.0.0",
+  "description": "Textlint rule to ensure that titles are using AP/APA style",
+  "author": {
+    "name": "Artem Sapegin",
+    "url": "http://sapegin.me"
+  },
+  "homepage": "https://github.com/sapegin/textlint-rule-title-case",
+  "repository": "sapegin/textlint-rule-title-case",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "npm run test:jest",
+    "lint": "eslint . --fix",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test:jest": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "textlint",
+    "rule",
+    "title",
+    "case",
+    "ap",
+    "apa",
+    "style",
+    "english"
+  ],
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-tamia": "^3.3.2",
+    "jest": "^21.2.1",
+    "semantic-release": "^6.3.2",
+    "semantic-release-tamia": "^1.1.1",
+    "textlint-tester": "^3.0.3"
+  },
+  "dependencies": {
+    "ap-style-title-case": "^1.0.1"
+  },
+  "release": {
+    "analyzeCommits": "semantic-release-tamia/analyzeCommits",
+    "generateNotes": "semantic-release-tamia/generateNotes",
+    "verifyRelease": "semantic-release-tamia/verifyRelease"
+  }
+}
