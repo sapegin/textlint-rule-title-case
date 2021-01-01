@@ -44,7 +44,8 @@
     "textlint-tester": "^5.2.7"
   },
   "dependencies": {
-    "ap-style-title-case": "^1.1.2"
+    "ap-style-title-case": "^1.1.2",
+    "textlint-util-to-string": "^3.1.1"
   },
   "release": {
     "analyzeCommits": "semantic-release-tamia/analyzeCommits",
