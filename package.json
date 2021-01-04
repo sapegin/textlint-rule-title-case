@@ -10,7 +10,7 @@
   "repository": "sapegin/textlint-rule-title-case",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=12"
   },
   "main": "index.js",
   "files": [
