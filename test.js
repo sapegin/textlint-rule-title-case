@@ -1,17 +1,33 @@
 const TextLintTester = require('textlint-tester');
 const rule = require('./index');
 
-const { headerRegExp, updateCase } = rule.test;
+const { getText, updateCase } = rule.test;
 const tester = new TextLintTester();
 
-describe('headerRegExp', () => {
+describe('getText', () => {
 	test('ATX style headers', () => {
-		expect('# This Is a Title'.match(headerRegExp)[1]).toBe('This Is a Title');
-		expect('## This Is a Subtitle'.match(headerRegExp)[1]).toBe('This Is a Subtitle');
-	});
-	test('Setext style headers', () => {
-		expect('This Is a Title\n==='.match(headerRegExp)[1]).toBe('This Is a Title');
-		expect('This Is a Subtitle\n---'.match(headerRegExp)[1]).toBe('This Is a Subtitle');
+		expect(getText({
+			type: 'Header',
+			depth: 1,
+			raw: '# This Is a Title',
+			range: [0, 17],
+			children: [{
+				type: 'Str',
+				value: 'This Is a Title',
+				range: [1, 17],
+			}],
+		})).toBe('This Is a Title');
+		expect(getText({
+			type: 'Header',
+			depth: 2,
+			raw: '## This Is a Subtitle',
+			range: [0, 21],
+			children: [{
+				type: 'Str',
+				value: 'This Is a Subtitle',
+				range: [2, 21],
+			}],
+		})).toBe('This Is a Subtitle');
 	});
 });
 
@@ -34,14 +50,34 @@ tester.run('textlint-rule-terminology', rule, {
 			text: 'This Is a Title\n===\n\nThis Is a Subtitle\n---',
 		},
 		{
-			// FIXME: Should be "This **Is a** Title" but proper markup support would be hard
-			text: '# This **Is A** Title',
+			text: '# This **Is a** Title',
+		},
+		{
+			text: '# _This Is a Title_',
 		},
 	],
 	invalid: [
 		{
 			text: '# This is a title',
 			output: '# This Is a Title',
+			errors: [
+				{
+					message: 'Incorrect title casing: “This is a title”, use “This Is a Title” instead',
+				},
+			],
+		},
+		{
+			text: '# _This is a title_',
+			output: '# _This Is a Title_',
+			errors: [
+				{
+					message: 'Incorrect title casing: “This is a title”, use “This Is a Title” instead',
+				},
+			],
+		},
+		{
+			text: '# _**This is a title**_',
+			output: '# _**This Is a Title**_',
 			errors: [
 				{
 					message: 'Incorrect title casing: “This is a title”, use “This Is a Title” instead',

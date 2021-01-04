@@ -10,7 +10,7 @@
   "repository": "sapegin/textlint-rule-title-case",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=12"
   },
   "main": "index.js",
   "files": [
@@ -36,15 +36,16 @@
     "english"
   ],
   "devDependencies": {
-    "eslint": "^3.15.0",
-    "eslint-config-tamia": "^3.3.2",
-    "jest": "^21.2.1",
-    "semantic-release": "^6.3.2",
-    "semantic-release-tamia": "^1.1.1",
-    "textlint-tester": "^3.0.3"
+    "eslint": "^7.16.0",
+    "eslint-config-tamia": "^7.2.6",
+    "jest": "^26.6.3",
+    "semantic-release": "^17.3.1",
+    "semantic-release-tamia": "^3.0.0",
+    "textlint-tester": "^5.2.7"
   },
   "dependencies": {
-    "ap-style-title-case": "^1.0.1"
+    "ap-style-title-case": "^1.1.2",
+    "textlint-util-to-string": "^3.1.1"
   },
   "release": {
     "analyzeCommits": "semantic-release-tamia/analyzeCommits",
