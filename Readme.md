@@ -1,7 +1,7 @@
 # textlint-rule-title-case
 
-[![textlint fixable rule](https://img.shields.io/badge/textlint-fixable-green.svg?style=social)](https://textlint.github.io/)
-[![Build Status](https://travis-ci.org/sapegin/textlint-rule-title-case.svg)](https://travis-ci.org/sapegin/textlint-rule-title-case)
+[![textlint fixable rule](https://img.shields.io/badge/textlint-fixable-green.svg)](https://textlint.github.io/)
+[![Build Status](https://github.com/sapegin/textlint-rule-title-case/workflows/Build/badge.svg)](https://github.com/sapegin/textlint-rule-title-case/actions?query=workflow%3ABuild)
 [![npm](https://img.shields.io/npm/v/textlint-rule-title-case.svg)](https://www.npmjs.com/package/textlint-rule-title-case)
 
 [Textlint](https://github.com/textlint/textlint) rule to ensure that titles are using [AP](https://en.wikipedia.org/wiki/AP_Stylebook)/[APA](https://en.wikipedia.org/wiki/APA_style) style. Based on [ap-style-title-case](https://github.com/zeke/ap-style-title-case).
