@@ -20,7 +20,6 @@
     "pretest": "npm run lint",
     "test": "npm run test:jest",
     "lint": "eslint . --fix",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test:jest": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -39,17 +38,10 @@
     "eslint": "^7.16.0",
     "eslint-config-tamia": "^7.2.6",
     "jest": "^26.6.3",
-    "semantic-release": "^17.3.1",
-    "semantic-release-tamia": "^3.0.0",
     "textlint-tester": "^5.2.7"
   },
   "dependencies": {
     "ap-style-title-case": "^1.1.2",
     "textlint-util-to-string": "^3.1.1"
-  },
-  "release": {
-    "analyzeCommits": "semantic-release-tamia/analyzeCommits",
-    "generateNotes": "semantic-release-tamia/generateNotes",
-    "verifyRelease": "semantic-release-tamia/verifyRelease"
   }
 }
