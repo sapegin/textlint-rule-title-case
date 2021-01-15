@@ -3,16 +3,20 @@ const titleCase = require('ap-style-title-case');
 
 const DEFAULT_OPTIONS = {
 	exclusions: [],
+	headingLevels: []
 };
 
-function reporter(context) {
-	const opts = Object.assign({}, DEFAULT_OPTIONS);
+function reporter(context, opts = {}) {
+	const options = { ...DEFAULT_OPTIONS, ...opts };
 	const { Syntax, RuleError, report, fixer } = context;
 	return {
 		[Syntax.Header](node) {
+			if (options.headingLevels.length > 0 && !options.headingLevels.includes(node.depth)) {
+				return false;
+			}
 			return new Promise(resolve => {
 				const text = getText(node);
-				const replacement = updateCase(text, opts.exclusions);
+				const replacement = updateCase(text, options.exclusions);
 				if (text !== replacement) {
 					const index = getFirstStrIndex(node);
 					const range = [index, index + text.length];
