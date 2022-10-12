@@ -86,3 +86,75 @@ tester.run('textlint-rule-terminology', rule, {
 		},
 	],
 });
+
+tester.run(
+	'textlint-rule-title-case',
+	{
+		rules: [
+			{
+				ruleId: 'title-case',
+				rule,
+				options: {
+					headingLevels: [1]
+				},
+			},
+		],
+	},
+	{
+		valid: [
+			{
+				// The rule should only be applied on document title (level 1)
+				// The document title (level 1) is using AP/APA title case but the section title (level 2) is *not*
+				text: '# This Is a Title\n\n## This is a subtitle',
+			},
+		],
+		invalid: [
+			{
+				text: '# This is a title\n\n## This Is a Subtitle',
+				output: '# This Is a Title\n\n## This Is a Subtitle',
+				errors: [
+					{
+						message:
+							'Incorrect title casing: “This is a title”, use “This Is a Title” instead',
+					},
+				],
+			},
+		],
+	}
+);
+
+tester.run(
+	'textlint-rule-title-case',
+	{
+		rules: [
+			{
+				ruleId: 'title-case',
+				rule,
+				options: {
+					exclusions: [
+						'reveal.js'
+					]
+				},
+			},
+		],
+	},
+	{
+		valid: [
+			{
+				text: '# reveal.js Configuration Options',
+			},
+		],
+		invalid: [
+			{
+				text: '# node.js Configuration Options',
+				output: '# Node.js Configuration Options',
+				errors: [
+					{
+						message:
+							'Incorrect title casing: “node.js Configuration Options”, use “Node.js Configuration Options” instead',
+					},
+				],
+			},
+		],
+	}
+);
