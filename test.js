@@ -32,7 +32,7 @@ describe('getText', () => {
 });
 
 describe('updateCase', () => {
-	test('exclusions', () => {
+	test('exclude', () => {
 		expect(updateCase('what is an npm package', ['npm'])).toBe('What Is an npm Package');
 	});
 	test('ignore case', () => {
@@ -131,7 +131,7 @@ tester.run(
 				ruleId: 'title-case',
 				rule,
 				options: {
-					exclusions: [
+					exclude: [
 						'reveal.js'
 					]
 				},
