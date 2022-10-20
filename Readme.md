@@ -45,7 +45,7 @@ You can configure the rule in your `.textlintrc`:
   "rules": {
     "title-case": {
       // Always use this casing for these words
-      "exclusions": [
+      "exclude": [
         "npm",
         "webpack"
       ],

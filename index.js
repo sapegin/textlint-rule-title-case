@@ -2,7 +2,7 @@ const StringSource = require("textlint-util-to-string").StringSource;
 const titleCase = require('ap-style-title-case');
 
 const DEFAULT_OPTIONS = {
-	exclusions: [],
+	exclude: [],
 	headingLevels: []
 };
 
@@ -16,7 +16,7 @@ function reporter(context, opts = {}) {
 			}
 			return new Promise(resolve => {
 				const text = getText(node);
-				const replacement = updateCase(text, options.exclusions);
+				const replacement = updateCase(text, options.exclude);
 				if (text !== replacement) {
 					const index = getFirstStrIndex(node);
 					const range = [index, index + text.length];
