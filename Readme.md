@@ -44,6 +44,8 @@ You can configure the rule in your `.textlintrc`:
 {
   "rules": {
     "title-case": {
+      // Apply these rules only for mentioned heading levels
+      "headingLevels": [1, 2, 3],
       // Always use this casing for these words
       "exclude": [
         "npm",
