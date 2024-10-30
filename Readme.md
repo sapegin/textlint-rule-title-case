@@ -12,7 +12,9 @@ The rules are:
 * Always capitalize the last word, even if it’s a stopword.
 * Lowercase these words: _a an and at but by for in nor of on or so the to up yet_.
 
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/1v150k2d0A1o2F240930/textlint-rule-title-case.png)
+![textlint-rule-title-case screenshot](https://d3vv6lp55qjaqc.cloudfront.net/items/1v150k2d0A1o2F240930/textlint-rule-title-case.png)
+
+[![Washing your code. A book on clean code for frontend developers](https://sapegin.me/images/washing-code-github.jpg)](https://sapegin.me/book/)
 
 ## Installation
 
